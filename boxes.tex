@@ -1,0 +1,136 @@
+\usepackage{thmtools}
+\usepackage[skins, breakable]{tcolorbox}
+
+% Some magic Snow taught me
+\makeatletter
+\define@key{thmdef}{tcolorbox}[{}]{
+    \thmt@trytwice{}{%
+        \RequirePackage[skins]{tcolorbox}%
+        \RequirePackage{thm-patch}%
+        \addtotheorempreheadhook[\thmt@envname]{\begin{tcolorbox}[#1]}%
+        \addtotheorempostfoothook[\thmt@envname]{\end{tcolorbox}}%
+    }%
+}
+\makeatother
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+    headfont	= {\sffamily\bfseries\color{ForestGreen!70!black}},
+    bodyfont	= {\normalfont},
+	tcolorbox	={
+		breakable,
+		boxsep=0pt,
+		left=4mm,right=4mm,top=1mm,bottom=2mm,
+		empty,
+		interior engine=spartan,
+		extras broken={interior engine=spartan},
+		boxrule=0pt,
+		borderline west={2pt}{0pt}{ForestGreen},
+		colback=ForestGreen!5,
+		coltitle=ForestGreen!70!black,
+		parbox = false,
+        before upper={%
+            \setlength\parskip{.5\baselineskip plus .5\baselineskip}%
+            \setlength\parfillskip{1em plus 1fil}%
+        },
+    },
+	preheadhook={\vspace*{-1.5\parskip}}, % this is the line
+]{greenbox}
+
+\declaretheoremstyle[
+    headfont	= {\sffamily\bfseries\color{NavyBlue!70!black}},
+    bodyfont	= {\normalfont},
+	tcolorbox	={
+		breakable,
+		boxsep=0pt,
+		left=4mm,right=4mm,top=1mm,bottom=2mm,
+		empty,
+		interior engine=spartan,
+		extras broken={interior engine=spartan},
+		boxrule=0pt,
+		borderline west={2pt}{0pt}{NavyBlue},
+		colback=NavyBlue!5,
+		coltitle=NavyBlue!70!black,
+		parbox = false,
+        before upper={%
+            \setlength\parskip{.5\baselineskip plus .5\baselineskip}%
+            \setlength\parfillskip{1em plus 1fil}%
+        },
+    },
+	preheadhook={\vspace*{-1.5\parskip}}, % this is the line
+]{bluebox}
+
+
+\declaretheoremstyle[
+    headfont	= {\sffamily\bfseries\color{Mulberry!70!black}},
+    bodyfont	= {\normalfont},
+	tcolorbox	={
+		breakable,
+		boxsep=0pt,
+		left=4mm,right=4mm,top=1mm,bottom=2mm,
+		empty,
+		interior engine=spartan,
+		extras broken={interior engine=spartan},
+		boxrule=0pt,
+		borderline west={2pt}{0pt}{Mulberry},
+		colback=Mulberry!5,
+		coltitle=Mulberry!70!black,
+		parbox = false,
+        before upper={%
+            \setlength\parskip{.5\baselineskip plus .5\baselineskip}%
+            \setlength\parfillskip{1em plus 1fil}%
+        },
+    },
+	preheadhook={\vspace*{-1.5\parskip}}, % this is the line
+]{purplebox}
+
+
+\declaretheoremstyle[
+    headfont	= {\sffamily\bfseries\color{RawSienna!70!black}},
+    bodyfont	= {\normalfont},
+	tcolorbox	={
+		breakable,
+		boxsep=0pt,
+		left=4mm,right=4mm,top=1mm,bottom=2mm,
+		empty,
+		interior engine=spartan,
+		extras broken={interior engine=spartan},
+		boxrule=0pt,
+		borderline west={2pt}{0pt}{RawSienna},
+		colback=RawSienna!5,
+		coltitle=RawSienna!70!black,
+		parbox = false,
+        before upper={%
+            \setlength\parskip{.5\baselineskip plus .5\baselineskip}%
+            \setlength\parfillskip{1em plus 1fil}%
+        },
+    },
+	preheadhook={\vspace*{-1.5\parskip}}, % this is the line
+]{redbox}
+
+\declaretheoremstyle[
+    headfont	= {\sffamily\bfseries\color{RawSienna!70!black}},
+    bodyfont	= {\normalfont},
+	numbered	= no,
+	qed = \qedsymbol,
+	tcolorbox	={
+		breakable,
+		boxsep=0pt,
+		left=4mm,right=4mm,top=1mm,bottom=1mm,
+		empty,
+		interior engine=spartan,
+		extras broken={interior engine=spartan},
+		boxrule=0pt,
+		borderline west={2pt}{0pt}{RawSienna},
+		colback=RawSienna!1,
+		coltitle=RawSienna!70!black,
+		parbox = false,
+        before upper={%
+            \setlength\parskip{.5\baselineskip plus .5\baselineskip}%
+            \setlength\parfillskip{1em plus 1fil}%
+        },
+    },
+	preheadhook={\vspace*{-1.5\parskip}}, % this is the line
+]{proofbox}
+

@@ -1,0 +1,65 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+context "math()"
+snippet bar "conjugate" wA
+\overline{${1:${VISUAL}}} 
+endsnippet
+
+context "math()"
+snippet sr "square" iA
+^{2} 
+endsnippet
+
+context "math()"
+snippet cb "cube" iA
+^{3} 
+endsnippet
+
+context "math()"
+snippet td "to the power" iA
+^{$1}
+endsnippet
+
+context "math()"
+snippet inv "inverse" iA
+^{-1}
+endsnippet
+
+context "math()"
+snippet comp "complement" iA
+^{c}
+endsnippet
+
+context "math()"
+snippet unit "dual" iA
+^{\times}
+endsnippet
+
+context "math()"
+snippet dual "dual" iA
+^{\vee}
+endsnippet
+
+context "math()"
+snippet op "opposite" wA
+^{op}
+endsnippet
+
+context "math()"
+snippet pull "precomposition" iA
+^{*}
+endsnippet
+
+context "math()"
+snippet tsup "text subscript" wA
+^\text{$1}
+endsnippet
+
+context "math()"
+snippet cox "cochain complex" iA
+^{\bullet}
+endsnippet
+

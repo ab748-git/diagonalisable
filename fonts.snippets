@@ -1,0 +1,149 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+context "math()"
+snippet txt "text" wA
+\text{$1}
+endsnippet
+
+context "math()"
+snippet mbb "mathbb" wA
+\mathbb{$1}
+endsnippet
+
+context "math()"
+snippet msc "mathscr" wA
+\mathscr{$1}
+endsnippet
+
+context "math()"
+snippet mfr "math fraktur" wA
+\mathfrak{$1}
+endsnippet
+
+context "math()"
+snippet mcal "math calligraphy" wA
+\mathcal{$1}
+endsnippet
+
+context "math()"
+snippet mbf "math bold face" w
+\mathbf{$1}
+endsnippet
+
+context "math()"
+snippet msf "math sans serif" wA
+\mathsf{$1}
+endsnippet
+
+context "math()"
+snippet mtt "math type writer" w
+\mathtt{$1}
+endsnippet
+
+context "math()"
+snippet mit "math italics" w
+\mathit{$1}
+endsnippet
+
+context "math()"
+snippet aa "mathfrak" wA
+\fa
+endsnippet
+
+context "math()"
+snippet bb "mathfrak" wA
+\fb
+endsnippet
+
+context "math()"
+snippet mm "mathfrak" wA
+\fm
+endsnippet
+
+context "math()"
+snippet pp "mathfrak" wA
+\fp
+endsnippet
+
+context "math()"
+snippet qq "mathfrak" wA
+\fq
+endsnippet
+
+context "math()"
+snippet AA "mathbb" wA
+\bA
+endsnippet
+
+context "math()"
+snippet KK "mathbb" wA
+\bK
+endsnippet
+
+context "math()"
+snippet kk "mathbb" w
+\bk
+endsnippet
+
+context "math()"
+snippet QQ "mathbb" wA
+\bQ
+endsnippet
+
+context "math()"
+snippet ZZ "mathbb" wA
+\bZ
+endsnippet
+
+context "math()"
+snippet NN "mathbb" wA
+\bN
+endsnippet
+
+context "math()"
+snippet RR "mathbb" wA
+\bR
+endsnippet
+
+context "math()"
+snippet CC "mathbb" wA
+\bC
+endsnippet
+
+context "math()"
+snippet DD "mathbb" w
+\bD
+endsnippet
+
+context "math()"
+snippet PP "mathbb" w
+\bP
+endsnippet
+
+context "math()"
+snippet EE "mathbb" w
+\bE
+endsnippet
+
+context "math()"
+snippet OO "mathcal" wA
+\cO
+endsnippet
+
+context "math()"
+snippet FF "mathcal" wA
+\cF
+endsnippet
+
+context "math()"
+snippet GG "mathcal" wA
+\cG
+endsnippet
+
+context "math()"
+snippet HH "mathcal" wA
+\cH
+endsnippet

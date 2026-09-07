@@ -1,0 +1,85 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+context "math()"
+snippet -> "to" wA
+\to 
+endsnippet
+
+context "math()"
+snippet to "to" wA
+\to 
+endsnippet
+
+context "math()"
+snippet => "implies" wA
+\implies 
+endsnippet
+
+context "math()"
+snippet =< "implied by" wA
+\impliedby 
+endsnippet
+
+context "math()"
+snippet iff "iff" wA
+\iff 
+endsnippet
+
+context "math()"
+snippet == "isomorphism" wA
+\cong 
+endsnippet
+
+context "math()"
+snippet != "not equals" iA
+\neq 
+endsnippet
+
+context "math()"
+snippet e> "epi" wA
+\onto 
+endsnippet
+
+context "math()"
+snippet m> "mono" wA
+\into 
+endsnippet
+
+context "math()"
+snippet i> "mapsto" wA
+\mapsto 
+endsnippet
+
+context "math()"
+snippet x> "x rightarrow" wA
+\xrightarrow[${1:BOT}]{${2:TOP}}
+endsnippet
+
+
+context "math()"
+snippet lto "long to" w
+\longrightarrow
+endsnippet
+
+context "math()"
+snippet <- "gets" w
+\gets 
+endsnippet
+
+context "math()"
+snippet u> "up" w
+\uparrow 
+endsnippet
+
+context "math()"
+snippet d> "down" w
+\downarrow 
+endsnippet
+
+context "math()"
+snippet x< "x leftarrow" w
+\xleftarrow[${1:BOT}]{${2:TOP}}
+endsnippet

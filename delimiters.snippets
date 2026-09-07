@@ -1,0 +1,54 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+context "math()"
+snippet abs "Absolute Value" wA
+\abs{$1} 
+endsnippet
+
+context "math()"
+snippet set "Set" wA
+\set{$1} 
+endsnippet
+
+context "math()"
+snippet norm "norm" wA
+\norm{$1} 
+endsnippet
+
+context "math()"
+snippet inr "Inner Product" wA
+\inr{$1} 
+endsnippet
+
+context "math()"
+snippet floor "floor" w
+\floor{$1} 
+endsnippet
+
+context "math()"
+snippet ceil "ceil" w
+\ceil{$1} 
+endsnippet
+
+context "math()"
+snippet paren "Parenthesis" w
+\paren{$1} 
+endsnippet
+
+context "math()"
+snippet brak "Brackets" w
+\brak{$1} 
+endsnippet
+
+context "math()"
+snippet Paren "Double Parenthesis" w
+\Paren{$1} 
+endsnippet
+
+context "math()"
+snippet Brak "Double Brackets" w
+\Brak{$1} 
+endsnippet

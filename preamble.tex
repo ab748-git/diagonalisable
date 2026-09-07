@@ -1,0 +1,94 @@
+% Basic packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel} 
+
+% Named colors
+\usepackage[dvipsnames, table, xcdraw]{xcolor}
+
+% Math stuff
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{tikz, tikz-cd, graphicx}
+\usepackage{mathrsfs, mathtools, bm}
+\usepackage{stmaryrd, adjustbox}
+
+% Refer
+\usepackage{hyperref}
+\usepackage[capitalize]{cleveref}
+
+% Change numbering in enumerate
+\usepackage[shortlabels]{enumitem}
+\crefname{enumi}{part}{parts}
+\crefname{figure}{Figure}{Figures}
+
+% Margins and line spacing
+\usepackage[margin = 1.25in]{geometry}
+\usepackage{setspace, parskip}
+\onehalfspacing
+
+% other
+\usepackage{multicol, titletoc, bookmark, titlesec}
+
+
+% Colored boxes
+\input{boxes}
+
+\declaretheorem[style = proofbox, name = Proof]{myproof}
+\renewenvironment{proof}[1][\proofname]
+{\vspace{-10pt}\begin{myproof}}{\end{myproof}}
+
+% single counter with section as parent
+\declaretheorem[style=greenbox, name=Definition, parent=section]{definition}
+\declaretheorem[style=greenbox, name=Notation, sibling=definition]{notation}
+\declaretheorem[style=greenbox, name=Motivation, sibling=definition]{motivation}
+\declaretheorem[style=greenbox, name=Recall, sibling=definition]{recall}
+
+\declaretheorem[style=redbox, name=Proposition, sibling=definition]{proposition}
+\declaretheorem[style=redbox, name=Theorem, sibling=definition]{theorem}
+\declaretheorem[style=redbox, name=Lemma, sibling=definition]{lemma}
+\declaretheorem[style=redbox, name=Claim, sibling=definition]{claim}
+\declaretheorem[style=redbox, name=Corollary, sibling=definition]{corollary}
+
+\declaretheorem[style=bluebox, name=Observation, sibling=definition]{observation}
+\declaretheorem[style=bluebox, name=Example, sibling=definition]{example}
+\declaretheorem[style=bluebox, name=Remark, sibling=definition]{remark}
+\declaretheorem[style=bluebox, name=Note, sibling=definition]{note}
+
+\declaretheorem[style=purplebox, name=Problem, sibling=definition]{problem}
+\declaretheorem[style=purplebox, name=Question, sibling=definition]{question}
+\declaretheorem[style=purplebox, name=Exercise, sibling=definition]{exercise}
+\declaretheorem[style=purplebox, name=Fact, sibling=definition]{fact}
+\declaretheorem[style=purplebox, name=Alternative Proof, sibling=definition]{altproof}
+
+% no number
+\declaretheorem[style=greenbox, name=Definition, numbered=no]{definition*}
+\declaretheorem[style=greenbox, name=Notation, numbered=no]{notation*}
+\declaretheorem[style=greenbox, name=Motivation, numbered=no]{motivation*}
+\declaretheorem[style=greenbox, name=Recall, numbered=no]{recall*}
+
+\declaretheorem[style=redbox, name=Proposition, numbered=no]{proposition*}
+\declaretheorem[style=redbox, name=Theorem, numbered=no]{theorem*}
+\declaretheorem[style=redbox, name=Lemma, numbered=no]{lemma*}
+\declaretheorem[style=redbox, name=Claim, numbered=no]{claim*}
+\declaretheorem[style=redbox, name=Corollary, numbered=no]{corollary*}
+
+\declaretheorem[style=bluebox, name=Observation, numbered=no]{observation*}
+\declaretheorem[style=bluebox, name=Example, numbered=no]{example*}
+\declaretheorem[style=bluebox, name=Remark, numbered=no]{remark*}
+\declaretheorem[style=bluebox, name=Note, numbered=no]{note*}
+
+\declaretheorem[style=purplebox, name=Problem, numbered=no]{problem*}
+\declaretheorem[style=purplebox, name=Question, numbered=no]{question*}
+\declaretheorem[style=purplebox, name=Exercise, numbered=no]{exercise*}
+\declaretheorem[style=purplebox, name=Fact, numbered=no]{fact*}
+
+% Figure support.
+\usepackage{pdfpages}
+\usepackage{transparent}
+\graphicspath{figures/} 
+\pdfsuppresswarningpagegroup=1
+
+
+
+% Math commands and operators
+\input{math}

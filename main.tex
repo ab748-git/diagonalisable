@@ -1,0 +1,626 @@
+\documentclass[11pt, titlepage, a4paper]{article}
+\input{preamble}
+\input{title}
+\usepackage{tikz-cd}
+\usepackage{url}
+\usepackage{comment}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{nccmath}
+
+
+
+\begin{document}
+
+
+
+
+	\maketitle
+	
+
+	
+
+
+\section{Diagonalisable $2\times 2$ Matrices over $\bZ_{p}$ }
+
+Let $p$ be a prime and denote by $\bZ_{p} := \bZ/p\bZ,$ which is a finite field of size $p.$ Let $M_{2}(\bZ_{p})$ and $GL_{2}(\bZ_{p})$ denote the set of $2\times 2$ matrices and invertible matrices, respectively, with entries taken from $\bZ_{p}.$  The objective here is to show the following.   
+
+\begin{theorem}\label{count}
+ The number of diagonalisable $2\times 2$ matrices over $\bZ_{p}$ is 
+ \begin{align*}
+ \frac{p^4-p^{2}+2p}{2}.
+\end{align*}
+
+\end{theorem}
+
+We divide the counting into two parts. If $A \in M_{2}(\bZ_{p})$ has distinct eigenvalues, then it is diagonalisable (this is a much more general result that holds for $n\times n$ matrices over any commutative ring). 
+
+To begin, the possible ways of choosing two distinct eigenvalues is given by the binomial coefficient $\binom{p}{2} = \frac{p(p-1)}{2}.$ Note that $0$ can be a possible choice of eigenvalue as well. Each choice corresponds to the diagonal matrix $D(\lambda_{1},\lambda_{2}) :=
+\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix},
+$ where $\lambda_{1} \neq \lambda_{2}$ are the distinct eigenvalues. 
+
+Any diagonalisable matrix $A$ that has distinct eigenvalues is similar to some $D(\lambda_{1},\lambda_{2})$ seen above. We thus want to count the set $\{ PD(\lambda_{1},\lambda_{2})P^{-1} \mid P \in GL_{2}(\bZ_{p}) \}.$ The union of these sets over $\lambda_{i}$ will thus give us all the diagonalisable matrices that have distinct eigenvalues. 
+
+We now use group actions. The group $GL_{2}(\bZ_{p})$ acts on $M_{2}(\bZ_{p})$ by conjugation and the set $\{ PD(\lambda_{1},\lambda_{2})P^{-1} \mid P \in GL_{2}(\bZ_{p}) \}$ is nothing but the orbit of $D(\lambda_{1},\lambda_{2}) \in M_{2}(\bZ_{p})$ under this action. Instead of counting it directly, we count something easier, that is, the stabiliser of $D(\lambda_{1},\lambda_{2})$ under this action. The stabiliser is the set $\{ P \in GL_{2}(\bZ_{p}) \mid PD(\lambda_{1},\lambda_{2}) = D(\lambda_{1},\lambda_{2})P \}.$ 
+
+Let $P = 
+\begin{bmatrix}
+ a & b \\
+ c & d
+\end{bmatrix}
+$ stabilise $D(\lambda_{1},\lambda_{2}).$ Then we have:
+\begin{align*}
+ \begin{bmatrix}
+ a & b \\
+ c & d
+\end{bmatrix}\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix} = \begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}\begin{bmatrix}
+ a & b \\
+ c & d
+\end{bmatrix} \implies  \begin{bmatrix}
+ a\lambda_{1} & b\lambda_{2} \\
+ c\lambda_{1} & d\lambda_{2}
+\end{bmatrix} = \begin{bmatrix}
+ a\lambda_{1} & b\lambda_{1} \\
+ c\lambda_{2} & d\lambda_{2}
+\end{bmatrix}.
+\end{align*}
+But then $b\lambda_{1}=b\lambda_{2} \implies b = 0,$ since $\lambda_{1}\neq \lambda_{2}.$ Likewise $c = 0.$ The diagonal entries $a$ and $d$ have no restrictions, in other words, the stabiliser of $D(\lambda_{1},\lambda_{2})$ is the subgroup of all diagonal matrices in $GL_{2}(\bZ_{p}),$ which has cardinality $(p-1)^{2}.$ The size of $GL_{2}(\bZ_{p})$ is $(p^{2}-1)(p^{2}-p).$ By the orbit-stabiliser theorem, the size of the orbit of $D(\lambda_{1},\lambda_{2})$ is
+\begin{align*}
+ \frac{(p^{2}-1)(p^{2}-p)}{(p-1)^{2}} = p(p+1).
+\end{align*}
+
+Since $\lambda_{1}$ and $\lambda_{2}$ could be chosen in $\frac{p(p-1)}{2}$ ways, the total number of $2\times 2$ diagonalisable matrices that have distinct eigenvalues are 
+\begin{align*}
+ p(p+1) \times \frac{p(p-1)}{2} = \frac{p^{2}(p^{2}-1)}{2}.
+\end{align*}
+
+We now come to the second part of the counting, namely, when the diagonalisable matrix has repeated eigenvalues. Since we are dealing with $2\times 2$ matrices, this is just another way of saying that the eigenvalues are the same. Let $A \in M_{2}(\bZ_{p})$ be a diagonalisable matrix with a repeated eigenvalue $\lambda.$ Denote by $I$ the identity matrix. Then there exists $P \in GL_{2}(\bZ_{p})$ such that $A = P 
+\begin{bmatrix}
+ \lambda & 0 \\
+ 0 & \lambda
+\end{bmatrix}P^{-1} = P\lambda IP^{-1} = \lambda I.
+$ In other words, $A$ is itself a diagonal matrix. There are exactly $p$ choices for $A,$ as there are $p$ choices for $\lambda.$
+
+We are now ready to finish the count. Adding both cases of distinct and repeated eigenvalues, we see that there are a total of 
+\begin{align*}
+ \frac{p^{2}(p^{2}-1)}{2} + p = \frac{p^{4} - p^{2}+2p}{2}
+\end{align*}
+diagonalisable $2\times 2$ matrices over $\bZ_{p},$ which completes the proof of Theorem \ref{count}.
+
+\begin{note}
+ This argument actually should work for any finite field of size $q = p^{k}.$
+\end{note}
+
+\section{Counting Diagonalisable $n\times n$ Matrices over $\bZ_{p}$}
+
+
+We again begin by determining the stabilisers of diagonal matrices.
+
+Let $D$ be a $n\times n$ diagonal matrix with entries $\lambda_{1},\cdots, \lambda_{g},$ where each $\lambda_{i}$ is repeated $m_{i}$ times. We want to determine the orbit of the conjugation action on $D.$ Since we can always conjugate by an appropriate permutation matrix, we can assume, without loss of generality, that the similar entries are grouped together as $m_{i}\times m_{i}$ scalar matrices $\lambda_{i}I_{m_{i}}.$ For example, a $5\times 5$ diagonal matrix with three distinct entries would be represented as follows:
+\begin{align*}
+D =  \begin{bmatrix}
+ \lambda_{1} & & & & \\
+ & \lambda_{1} & & & & \\
+ & &  \lambda_{2}& & & \\
+ & & &  \lambda_{3}& & \\
+ & & & &   \lambda_{3}\\
+\end{bmatrix}.
+\end{align*}
+
+
+Now let $A \in GL_{n}(\bZ_{p})$ such that $AD=DA.$ We can always write $A = (A_{ij})$ where we each $A_{ij}$ is a $i\times j$ block, and $i,j \in \{1,2,\cdots. g\}.$ That is, we represent $A = (A_{ij})$ as 
+\begin{align*}
+A = (A_{ij})= \left[ 
+\begin{array}{c@{}c@{}c}
+ \left[\begin{array}{cc}
+         a_{11} & a_{12} \\
+         a_{21} & a_{22} \\
+  \end{array}\right] &\left[\begin{array}{cc} a_{13} \\ 
+  							a_{23} \end{array}\right] & \left[\begin{array}{cc}
+         a_{14} & a_{15} \\
+         a_{24} & a_{25} \\
+  \end{array}\right] \\
+\left[\begin{array}{ccc}
+                       a_{13} & a_{23}\\
+                      \end{array}\right] & \left[\begin{array}{ccc}
+                       a_{33}\\
+                      \end{array}\right] &\left[\begin{array}{ccc}
+                       a_{34} & a_{35}\\
+                      \end{array}\right] \\
+ \left[\begin{array}{cc}
+         a_{41} & a_{42} \\
+         a_{51} & a_{52} \\
+  \end{array}\right] &\left[\begin{array}{cc} a_{43} \\ 
+  							a_{53} \end{array}\right] & \left[\begin{array}{cc}
+         a_{44} & a_{45} \\
+         a_{54} & a_{55} \\
+  \end{array}\right]
+\end{array}\right].
+\end{align*}
+
+Now, when we compare the entries in the equation $AD=DA,$ we see that $\lambda_{i}A_{ij} = \lambda_{j}A_{ij}.$ Since $\lambda_{i} \neq \lambda_{j},$ it follows that $A_{ij} = 0,$ whenever $i\neq j.$ In particular, $A$ is a block diagonal matrix where the blocks are of sizes $m_{i}.$ Thus the possible choices for $A$ are $\prod_{i=1}^{g} |GL_{m_{i}}(\bZ_{p})|.$ The orbit of $D$ has size
+\begin{align*}
+ \frac{|GL_{n}(\bZ_{p})|}{\prod_{i=1}^{g} |GL_{m_{i}}(\bZ_{p})|}.
+\end{align*}
+
+The only thing left now is to determine how many possible ways there are to choose $D,$ that is. Clearly, the multiplicities of the eigenvalues correspond to a partition of $n.$ 
+
+Fix a partition $\sum_{i=1}^{g} m_{i}=n$ and denote by $r_{j}$ the amount of times $1\leq j \leq n-1$ occurs as a term in the partition. Note that $r_{j}=0$ is also possible. For example in the partition $1+1+2+2+3 = 9,$ we have $r_{1}=2, r_{2}=2$ and $r_{3}=1,$ while $r_{4}=0,$ et cetera. We wish to count the number of diagonal matrices $D$ such that $D$ has $g$ distinct entries $\lambda_{1},\cdots,\lambda_{g}$ and each $\lambda_{i}$ appears $m_{i}$ times. We can assume that similar entries are grouped together (since we can always conjugate by permutation matrices while computing the orbit of $D$). First, the number of ways to choose $g$ distinct entries are $\binom{p}{g}.$ Now, once chosen, we can arrange them in $g!$ ways. Finally, we need to take into account the multiplicities that are same. For example to choose a diagonal $5\times 5$ matrix such that we have 3 distinct entries where 2 of them appear twice, there is a repetition that we must remove, since we only care about the entries upto ordering and multiplicities. But note this only happens amongst those entries whose multiplicities are the same. That is, the matrices 
+\begin{align*}
+ \begin{bmatrix}
+ a & & & & \\
+  &b & & & \\
+  & &b & & \\
+  & & & c& \\
+  & & & &c 
+\end{bmatrix} \text{ and }  \begin{bmatrix}
+ a & & & & \\
+  &c & & & \\
+  & &c & & \\
+  & & & b& \\
+  & & & &b 
+\end{bmatrix}
+\end{align*} are the same for us whereas the matrices 
+\begin{align*}
+ \begin{bmatrix}
+ a & & & & \\
+  &b & & & \\
+  & &b & & \\
+  & & & c& \\
+  & & & &c 
+\end{bmatrix} \text{ and }  \begin{bmatrix}
+ b & & & & \\
+  &a & & & \\
+  & &a & & \\
+  & & & c& \\
+  & & & &c 
+\end{bmatrix}
+\end{align*} are different, as in the former, $a$ appears once and in the latter it appears twice.
+
+With this correction in mind, it follows that the number of diagonal matrices $D$ with $g$ distinct entries $\lambda_{1},\cdots,\lambda_{g}$ and each $\lambda_{i}$ appearing $m_{i}$ times is given by:
+\begin{align*}
+ \binom{p}{g} \frac{g!}{\prod_{j=1}^{n-1} r_{j}!}.
+\end{align*}
+
+This also takes care if all the multiplicities agree, for example in the case of $1+1+1=3$ we have $g=3$ and it is clear that we only have $\binom{p}{3}$ choices. In the above partition we also have $r_{1}=3$ and so $g!$ and $r_{1}!$ cancel out!
+
+Thus, the number of $n\times n$ diagonalisable matrices over $\bZ_{p}$ is given by:
+\begin{align*}
+ \sum_{g=1}^{n} \Big( \sum_{m_{1}+\cdots +m_{g}=n}  \binom{p}{g} \frac{g! |GL_{n}(\bZ_{p})|}{\prod_{i=1}^{g} |GL_{m_{i}}(\bZ_{p})| \prod_{j=1}^{n-1} r_{j}!} \Big),
+\end{align*}
+where it must be taken care that the $r_{j}$-s are determined once a partition $m_{1}+\cdots +m_{g}=n$ is fixed.
+
+\subsection{The $3\times 3$ Case}
+
+We demonstrate the above for $3\times 3$ matrices over $\bZ_{p}.$ There are a total of $3$ partitions possible and they are $1+1+1, 1+2$ and $3.$ The case of $g=1$ is dealt with the quickest and we see that there are a total of $p$ choices. These are just the scalar matrices $\lambda I_{3}.$
+
+For the case of  $1+1+1=3,$ we have $g=3$ and 
+\begin{align*}
+ \binom{p}{g} \frac{g! |GL_{n}(\bZ_{p})|}{\prod_{i=1}^{g} |GL_{m_{i}}(\bZ_{p})| \prod_{j=1}^{n-1} r_{j}!}= \binom{p}{3} p^{3}(1+p+p^{2})(p+1) = \frac{p^{4}(p^{3}-1)(p+1)(p-2)}{6}.
+\end{align*}
+
+Now the final case of $1+2=3$ has $g=2$ and we have:
+ \begin{align*}
+ \binom{p}{g} \frac{g! |GL_{n}(\bZ_{p})|}{\prod_{i=1}^{g} |GL_{m_{i}}(\bZ_{p})| \prod_{j=1}^{n-1} r_{j}!}= \binom{p}{2} 2! \times p^{2}(1+p+p^{2}) = p^{3}(p^{3}-1).
+\end{align*}
+ 
+ The final count is thus:
+ 
+\begin{align*}
+ p + p^{3}(p^{3}-1) + \frac{p^{4}(p^{3}-1)(p+1)(p-2)}{6},
+\end{align*}
+which agrees with the count given in Theorem 6.1 in \cite{zpk} for $3\times 3$ diagonalisable matrices over $\bZ_{p^{k}}$ with $k=1.$
+
+\section{Diagonalisable $2\times 2$ Matrices over $\bZ_{pq},$ where $p\neq q$ are primes}
+
+The strategy is the same, to count the orbit sizes of the diagonal matrices. The distinction to be made now is that our base ring is not a field anymore, in fact, it is not even an integral domain, which means we need to account for zero divisors.
+
+Again we deal with the easiest case first, when a diagonal matrix $D = 
+\begin{bmatrix}
+ \lambda & 0 \\
+ 0 & \lambda
+\end{bmatrix} 
+$ has a repeated eigenvalue. The stabiliser of $D$ is all of $GL_{2}(\bZ_{pq})$ which makes the size of its orbit equal to 1.
+
+Given a diagonal matrix $D = 
+\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix},
+$ where $\lambda_{1} \neq \lambda_{2},$ define the following set:
+\begin{align*}
+ O(\lambda_{1},\lambda_{2}) = |\{PDP^{-1} \mid P \in GL_{2}(\bZ_{pq})\}|
+\end{align*}
+
+We will establish after Propositions \ref{o1} and \ref{o2} that: 
+\begin{align*}
+ \sum O(\lambda_{1},\lambda_{2}) = 
+\begin{cases}
+ p^{2}q^{2}(p^{2} -1)(q^{2} - 1), \text{ if $\lambda_{1}-\lambda_{2} \in \bZ_{pq}^{\times}$,} \\
+ pq(q(q^{2}-1) + p(p^{2}-1)), \text{ if $\lambda_{1}-\lambda_{2} \in \bZ_{pq} \backslash (\bZ_{pq}^{\times} \cup \{0\})$} \\
+ pq, \text{if $\lambda_{1}=\lambda_{2}.$}
+\end{cases}
+\end{align*}
+
+
+\begin{proposition}\label{o1}
+ Let $D = 
+\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix} 
+$ where $\lambda_{1}\neq \lambda_{2}.$ Then,
+\begin{align*}
+\sum_{\lambda_{1}-\lambda_{2} \in \bZ_{pq}^{\times}} O(\lambda_{1},\lambda_{2}) = p^{2}q^{2}(p^{2}-1)(q^{2}-1),
+\end{align*}
+where the sum is taken over all $(\lambda_{1},\lambda_{2})$ such that $\lambda_{1}-\lambda_{2}$ is a unit.
+\end{proposition}
+\begin{proof}
+ The stabiliser of $D$ consists of matrices $\begin{bmatrix}
+a & b \\
+ c & d
+\end{bmatrix}$ such that 
+\begin{align*}
+ \begin{bmatrix}
+a & b \\
+ c & d
+\end{bmatrix}\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix} =\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix} \begin{bmatrix}
+a & b \\
+ c & d
+\end{bmatrix} \implies  \begin{bmatrix}
+\lambda_{1}a & \lambda_{2}b \\
+ \lambda_{1}c & \lambda_{2}d
+\end{bmatrix}= \begin{bmatrix}
+\lambda_{1}a & \lambda_{1}b \\
+ \lambda_{2}c & \lambda_{2}d
+\end{bmatrix},
+\end{align*}
+which means that $(\lambda_{1}-\lambda_{2})b = 0$ as well as $(\lambda_{1}-\lambda_{2})c= 0.$ Since $(\lambda_{1}-\lambda_{2})$ is a unit, this forces $b=c=0.$ The determinant is then $ad$ which has to be a unit which means that both $a$ and $d$ have $\varphi(pq)=(p-1)(q-1)$ choices each and the size of the stabiliser is $\varphi(pq)^{2}=(p-1)^{2}(q-1)^{2}.$ This shows that
+\begin{align*}
+ O(\lambda_{1},\lambda_{2}) = \frac{|GL_{2}(\bZ_{pq})|}{(p-1)^{2}(q-1)^{2}}= pq(p+1)(q+1).
+\end{align*}
+
+But this is when $\lambda_{1}$ and $\lambda_{2}$ (and subsequently their difference) is a fixed unit. The difference $(\lambda_{1}-\lambda_{2})$ has $\varphi(pq)$ choices and for each choice $\lambda_{1}$ can be any of the $pq$ elements, since the value of $\lambda_{2}$ is then uniquely determined. 
+
+This means that as $\lambda_{1}-\lambda_{2}$ ranges over all possible units, 
+\begin{align*}
+& \sum_{\lambda_{1}-\lambda_{2} \in \bZ_{pq}^{\times}} O(\lambda_{1},\lambda_{2}) =  pq(p-1)(q-1) \times pq(p+1)(q+1) \\ & =p^{2}q^{2}(p^{2} -1)(q^{2} - 1).
+\end{align*}
+\end{proof}
+
+\begin{comment}
+\begin{lemma}
+ Let $D=\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}$ be such that $\lambda_{1}-\lambda_{2} \in \bZ_{pq}^{\times}.$ Then $D$ is similar to exactly 4 diagonal matrices, including itself.
+\end{lemma}
+\begin{proof}
+ $D$ is certainly similar to itself as well as the matrix $\begin{bmatrix}
+ \lambda_{2} & 0 \\
+ 0 & \lambda_{1}
+\end{bmatrix}$ (after conjugating by the permutation matrix $\begin{bmatrix}
+0 & 1 \\
+ 1& 0
+\end{bmatrix}$). Consider now the matrix $P=
+\begin{bmatrix}
+ p & q \\
+ q & p
+\end{bmatrix}.
+$ Conjugating, we see 
+\begin{align*}
+ PDP^{-1} = \begin{bmatrix}
+ p & q \\
+ q & p
+\end{bmatrix}\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}\begin{bmatrix}
+ p & -q \\
+ -q & p
+\end{bmatrix}\frac{1}{p^{2}-q^{2}} = \begin{bmatrix}
+ \frac{\lambda_{1}p^{2}-\lambda_{2}q^{2}}{p^{2}-q^{2}} & 0 \\
+ 0 &  \frac{\lambda_{2}p^{2}-\lambda_{1}q^{2}}{p^{2}-q^{2}}
+\end{bmatrix} \\ 
+=\begin{bmatrix}
+ \lambda_{1} + \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}} & 0 \\
+ 0 &  \lambda_{2} - \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}
+\end{bmatrix}. 
+\end{align*}
+Consider now the matrix $Q = \begin{bmatrix}
+ q & p \\
+ p & q
+\end{bmatrix}$ and conjugate,
+\begin{align*}
+ QDQ^{-1} = \begin{bmatrix}
+ q & p \\
+ p & q
+\end{bmatrix}\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}\begin{bmatrix}
+ q & -p \\
+ -p & q
+\end{bmatrix}\frac{1}{q^{2}-p^{2}} = \begin{bmatrix}
+ \frac{\lambda_{1}q^{2}-\lambda_{2}p^{2}}{q^{2}-p^{2}} & 0 \\
+ 0 &  \frac{\lambda_{2}q^{2}-\lambda_{1}p^{2}}{q^{2}-p^{2}}
+\end{bmatrix} \\ 
+=\begin{bmatrix}
+ \lambda_{2} - \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}  & 0 \\
+ 0 & \lambda_{1} + \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}
+\end{bmatrix}.
+\end{align*} 
+Observe that $QDQ^{-1}$ is just the conjugate of $PDP^{-1}$ by $\begin{bmatrix}
+0 & 1 \\
+ 1& 0
+\end{bmatrix}.$ Also, since $(\lambda_{1}-\lambda_{2}) \in \bZ_{pq},$ we have 
+\begin{align*}
+ \lambda_{1} \neq  \lambda_{1} + \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}} \text{ and } \lambda_{2} \neq  \lambda_{2} - \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}.
+\end{align*}
+
+Thus we have shown that there are at least 4 distinct diagonal matrices that $D$ is similar to, including itself. The claim below shows that these are the only ones.
+\end{proof}
+
+\begin{claim}
+ Let $D$ be as above and let $1 \leq x,w \leq q-1$ and $1\leq y,z \leq p-1$ and let $P = 
+\begin{bmatrix}
+ px & qy \\
+ qz & pw
+\end{bmatrix}, Q = \begin{bmatrix}
+ qy & px \\
+ pw & qz
+\end{bmatrix}.
+$ Then,  
+\begin{align*}
+ PDP^{-1} = \begin{bmatrix}
+ \lambda_{1} + \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}} & 0 \\
+ 0 &  \lambda_{2} - \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}
+\end{bmatrix}, \\ 
+  QDQ^{-1}= \begin{bmatrix}
+ \lambda_{2} - \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}  & 0 \\
+ 0 & \lambda_{1} + \frac{q^{2}(\lambda_{1}-\lambda_{2})}{p^{2}-q^{2}}
+\end{bmatrix}. 
+\end{align*}
+\end{claim} 
+\begin{proof}
+We show one case, the other is analogous. We have
+\begin{align*}
+ PDP^{-1} = \begin{bmatrix}
+ px & qy \\
+ qz & pw
+\end{bmatrix}\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}\begin{bmatrix}
+ pw & -qy \\
+ -qz & px
+\end{bmatrix}\frac{1}{p^{2}xw - q^{2}yz} \\ 
+= 
+\begin{bmatrix}
+ \lambda_{1}p^{2}xw - \lambda_{2}q^{2}yz& 0 \\
+ 0 & \lambda_{2}p^{2}xw - \lambda_{1}q^{2}yz
+\end{bmatrix}\frac{1}{p^{2}xw - q^{2}yz} \\
+= \begin{bmatrix}
+ \lambda_{1} + \frac{q^{2}yz(\lambda_{1}-\lambda_{2})}{p^{2}xw-q^{2}yz} & 0 \\
+ 0 &  \lambda_{2} - \frac{q^{2}yz(\lambda_{1}-\lambda_{2})}{p^{2}xw-q^{2}yz}
+\end{bmatrix},
+\end{align*}
+
+The assertion now follows by observing that the following identity always holds in $\bZ_{pq}:$
+\begin{align*}
+q^{2}zy(p^{2}-q^{2}) = q^{2}(p^{2}xw - q^{2}zy).
+\end{align*}
+\end{proof}
+
+We have now accounted for the repetitions and the size of the set:
+\begin{align*}
+ \Big\{ A = \begin{bmatrix}
+a & b \\
+ c & d
+\end{bmatrix} \mid AD=DA \text{ for } D = \begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix} \text{ and } \lambda_{1}-\lambda_{2} \in \bZ_{pq}^{\times} \Big\}
+\end{align*}
+is equal to 
+\begin{align*}
+ \frac{p^{2}q^{2}(p^{2} -1)(q^{2} - 1)}{4} = \frac{n^{2}(p^{2}-1)(q^{2}-1)}{4}.
+\end{align*}
+\end{comment}
+
+\begin{proposition}\label{o2}
+ Let $D = \begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}$ be such that $\lambda_{1}\neq \lambda_{2}.$ Then,
+\begin{align*}
+\sum_{\lambda_{1}-\lambda_{2} \in \bZ_{pq} \backslash \bZ_{pq}^{\times}} O(\lambda_{1},\lambda_{2}) = pq(q(q^{2}-1)+p(p^{2}-1)),
+\end{align*}
+where the sum is taken over all $(\lambda_{1},\lambda_{2})$ such that $\lambda_{1}-\lambda_{2}$ is a zero divisor.
+\end{proposition}
+\begin{proof}
+ Without loss of generality, assume $p \mid \lambda_{1}-\lambda_{2}.$ The other case will be similar. Let $A= \begin{bmatrix}
+a & b \\
+ c & d
+\end{bmatrix}$ stabilise $D.$ Since $(\lambda_{1}-\lambda_{2})$ is divisible by $p,$ this means that $b$ and $c$ must be divisible by $q.$
+
+We again divide the possibilities into two parts. The determinant of $A$ is $ad-q^{2}xy$ for some $x,y.$ We can assume that the determinant is equal to 1, since we can then later multiply the count by $\varphi(n).$ If $a$ is a unit, then $a$ has $\varphi(pq)$ choices. The entries $b$ and $c$ have $p$ choices each (as they can also be 0) and once three entries are chosen, $d$ is uniquely determined since the determinant is 1. This gives a total of $\varphi(n)p^{2}$ choices and once the determinant is allowed to vary, a total of $\varphi(n)^{2}p^{2}$ choices. But this was when $a$ was a unit. 
+
+Now if $a$ is a non-unit, it must be divisible by $p$ (as $b,c$ are divisible by $q$). Assume that $a=p.$ The determinant is thus $pd - q^{2}xy$ (writing $b=qx$ and $c=qy$). Note that $b$ and $c$ must be non-zero now to ensure invertibility. We can allow $x$ to have $(p-1)$ choices. Since $p$ and $q^{2}x$ are coprime, there is a non-trivial solution (modulo $pq$) to the equation $pd-q^{2}xy=1.$ Fix the resulting value of $y.$ Now if $d$ is a possible solution, so is $d+q, d+2q$ and so on. Thus, there are a total of $p$ choices for d. Finally, we had assumed $a=p$ but $a$ can be $p,2p,\cdots, (q-1)p,$ which means $a$ has $(q-1)$ choices. The total choices (when the determinant is 1) are then $(q-1)(p-1)p= \varphi(n)p.$ Finally, since the determinant can be any unit, we arrive at $\varphi(n)^{2}p$ choices in the case when $p\mid a.$ The size of the stabiliser is then $\varphi(n)^{2}p^{2} +\varphi(n)^{2}p = \varphi(n)^{2}p(p+1).$
+
+We have 
+\begin{align*}
+O(\lambda_{1},\lambda_{2}) =  \frac{|GL_{2}(\bZ_{pq}|)}{\varphi(n)^{2}p(p+1)} = q(q+1).
+\end{align*}
+Now we had begun with $\lambda_{1}-\lambda_{2}=p.$ But $\lambda_{1}-\lambda_{2}$ can also be $2p, 3p, \cdots, (q-1)p.$ There are thus a total of $n(q-1)$ choices to pick $\lambda_{1}$ and $\lambda_{2}.$ Finally, we could also have started with $\lambda_{1}-\lambda_{2}=q,$ which would switch $p$ and $q$ in the above calculations. Thus the final sum is 
+\begin{align*}
+& n(q-1)\times q(q+1) + n(p-1)\times p(p+1) \\ & = nq(q^{2}-1)+ np(p^{2}-1) \\ &= pq(q(q^{2}-1) + p(p^{2}-1)).
+\end{align*}
+
+\end{proof}
+
+However, we now must account for repetitions. One such repetition is simply the ordering of the diagonal entries. The matrices $\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix}$ and $\begin{bmatrix}
+ \lambda_{2} & 0 \\
+ 0 & \lambda_{1}
+\end{bmatrix}$ will have the same orbit, If we were working over a field, then this would finish off our work as over a field, any diagonal matrix similar to a given matrix is unique upto permutation of its entries. Surprisingly, this even holds over $\bZ_{p^{k}},$ which is shown in Theorem 2.1 in \cite{zpk}. This does not hold however, over $\bZ_{pq}$ as is illustrated by the following example over $\bZ_{15}$:
+\begin{align*}
+ \begin{bmatrix}
+ 3 & 5 \\
+ 5 & 3
+\end{bmatrix} \begin{bmatrix}
+ 2 & 0 \\
+ 0 & 1
+\end{bmatrix} \begin{bmatrix}
+ 3 & 5 \\
+ 5 & 3
+\end{bmatrix}^{-1} =  \begin{bmatrix}
+ 3 & 5 \\
+ 3 & 3
+\end{bmatrix} \begin{bmatrix}
+ 2 & 0 \\
+ 0 & 1
+\end{bmatrix} \begin{bmatrix}
+ 12 & 5 \\
+ 5 & 12
+\end{bmatrix} =\begin{bmatrix}
+ 7 & 0 \\
+ 0 & 11
+\end{bmatrix}.
+\end{align*}
+
+Thus, given a diagonal matrix $\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix},$ we also now need to find how many diagonal matrices it is similar to, and divide by that number. Motivated by this, for a diagonal matrix $D = 
+\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix},
+$ define the following set:
+\begin{align*}
+S_{\lambda_{1},\lambda_{2}} =  |\{ \text{Diagonal matrices } D' \mid  D' = PDP^{-1} \text{ for some } P \in GL_{2}(\bZ_{pq}) \}|.
+ \end{align*}
+ 
+ 
+\begin{observation}\label{conj}
+ We investigate the conjugation action of $GL_{2}(\bZ_{pq})$ on a fixed diagonal matrix $D = 
+\begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix},
+$ where $\lambda_{1}\neq \lambda_{2} \in \bZ_{pq}.$ Specifically, we want to see when conjugating a diagonal matrix yields a diagonal matrix which has different entries than the diagonal matrix we conjugated. Conjugating $D$ by $A = \begin{bmatrix}
+ a & b \\
+ c & d
+\end{bmatrix} \in GL_{2}(\bZ_{pq})$ yields:
+\begin{align*}
+ADA^{-1}=  \begin{bmatrix}
+ a & b \\
+ c & d
+\end{bmatrix} \begin{bmatrix}
+ \lambda_{1} & 0 \\
+ 0 & \lambda_{2}
+\end{bmatrix} \begin{bmatrix}
+ d & -b \\
+ -c & a
+\end{bmatrix}\frac{1}{ad-bc} = \begin{bmatrix}
+ \lambda_{1}a & \lambda_{2}b \\
+ \lambda_{1}c & \lambda_{2}d
+\end{bmatrix} \begin{bmatrix}
+ d & -b \\
+ -c & a
+\end{bmatrix}\frac{1}{ad-bc} \\ = 
+\begin{bmatrix}
+ \lambda_{1}ad - \lambda_{2}bc & (\lambda_{2}-\lambda_{1})ab \\
+  (\lambda_{1}-\lambda_{2})dc & \lambda_{2}ad - \lambda_{1}bc
+\end{bmatrix} \frac{1}{ad-bc} \\ = 
+\begin{bmatrix}
+ \lambda_{1} + \frac{bc(\lambda_{1}-\lambda_{2})}{ad-bc} & \frac{(\lambda_{2}-\lambda_{1})ab}{ad-bc}\\
+ \frac{(\lambda_{1}-\lambda_{2})dc}{ad-bc}&  \lambda_{2} - \frac{bc(\lambda_{1}-\lambda_{2})}{ad-bc}
+\end{bmatrix} = \begin{bmatrix}
+ \lambda_{2} + \frac{ad(\lambda_{1}-\lambda_{2})}{ad-bc} & \frac{(\lambda_{2}-\lambda_{1})ab}{ad-bc}\\
+ \frac{(\lambda_{1}-\lambda_{2})dc}{ad-bc}&  \lambda_{1} - \frac{ad(\lambda_{1}-\lambda_{2})}{ad-bc}
+\end{bmatrix}
+\end{align*}
+\end{observation}
+ 
+\begin{theorem}
+Let $\lambda_{1}\neq \lambda_{2} \in \bZ_{pq}.$ We have 
+ \begin{align*}
+ S_{\lambda_{1},\lambda_{2}} = 
+\begin{cases}
+ 2, \text{ if } \lambda_{1}-\lambda_{2} \text{ is a zero divisor,} \\
+ 4,  \text{ if } \lambda_{1}-\lambda_{2} \text{ is a unit.}
+\end{cases}
+\end{align*}
+\end{theorem}
+\begin{proof}
+ We refer to Observation \ref{conj} and divide the proof into the following cases.
+ \textbf{Case 1: Each entry of $A$ is a zero divisor in $\bZ_{pq}.$} 
+
+Without loss of generality we can assume that $p \mid a,d$ and $q\mid b,c$ (its either this or the other way around). Then the off-diagonal entries of $ADA^{-1}$ contain $ab$ and $dc,$ which means that both the off-diagonal entries vanish. Thus, $ADA^{-1}$ is a diagonal matrix again. It remains to be seen whether the entries of $ADA^{-1}$ are the same as $D$ or not.
+
+\textbf{Case 1, Subcase 1: $\lambda_{1}-\lambda_{2}$ is a unit in $\bZ_{pq}$.}
+
+The resulting diagonal matrix $ADA^{-1}$ is different from $D$ since $\lambda_{1} \neq  \lambda_{1} + \frac{bc(\lambda_{1}-\lambda_{2})}{ad-bc}$ and $\lambda_{2}\neq  \lambda_{2} - \frac{bc(\lambda_{1}-\lambda_{2})}{ad-bc}.$ If we exchange the zero divisors, that is, if we start with $p \mid b,c$ and $q\mid a,d,$ we end up with the same diagonal entries, just having switched places. 
+
+\textbf{Case 1, Subcase 2: $\lambda_{1}-\lambda_{2}$ is a zero divisor in $\bZ_{pq}$.}
+
+Without loss of generality, assume that $p\mid \lambda_{1}-\lambda_{2}.$ Then from the first of the two equal expressions of $ADA^{-1}$, we have $bc(\lambda_{1}-\lambda_{2})=0$ and we are left with $ADA^{-1}=D.$ If we start with $q\mid \lambda_{1}-\lambda_{2},$ then by the second expression for $ADA^{-1},$ we have $ad(\lambda_{1}-\lambda_{2})=0$ and we are left with $
+\begin{bmatrix}
+ \lambda_{2}& 0 \\
+ 0 & \lambda_{1}
+\end{bmatrix},
+$which is just switching the diagonal entries of $D.$ 
+
+We conclude that in the first case, if $(\lambda_{1}-\lambda_{2})$ is a zero divisor, then the conjugation action of $GL_{2}(\bZ_{pq})$ only permutes the diagonal entries, whereas if $(\lambda_{1}-\lambda_{2})$ is a unit, then the conjugation action actually yields another diagonal matrix that has entries different from $\lambda_{1}$ and $\lambda_{2}.$
+
+\textbf{Case 2: When all entries of $A$ are not zero divisors $\bZ_{pq}.$} 
+
+Note that for $ADA^{-1}$ to be a diagonal matrix, both $ab$ and $cd$ must be zero divisors, irrespective of whether $(\lambda_{1}-\lambda_{2})$ is a unit or a zero divisor. If $(\lambda_{1}-\lambda_{2})$ is a unit, then in fact all the four entries must be zero divisors, which is a contradiction. We can thus assume that $(\lambda_{1}-\lambda_{2})$ is a zero divisor, say $p \nmid (\lambda_{1}-\lambda_{2}),$ without loss of generality. Then either $q \mid a,d$ or $q \mid b,c.$ In each case, the resulting matrix $ADA^{-1}$ is a diagonal matrix with the same entries $\lambda_{1}$ and $\lambda_{2}$ as $D.$
+\end{proof}
+
+
+It follows that the total number of $2\times 2$ diagonalisable matrices over $\bZ_{pq}$ is:
+\begin{align*}
+& pq +  \sum_{\lambda_{1}-\lambda_{2} \in \bZ_{pq}^{\times}} \frac{O(\lambda_{1},\lambda_{2})}{4} +  \sum_{\lambda_{1}-\lambda_{2} \in \bZ\backslash \bZ_{pq}^{\times}} \frac{O(\lambda_{1},\lambda_{2})}{2} \\ 
+& = pq + \frac{p^{2}q^{2}(p^{2}-1)(q^{2}-1)}{4} + \frac{p^{2}q(p^{2}-1)}{2} + \frac{pq^{2}(q^{2}-1)}{2} \\
+& = p(\frac{p^{3}-p+2}{2})\times q(\frac{q^{3}-q+2}{2})
+\end{align*}
+The last expression actually shows that the number of $2\times 2$ diagonalisable matrices over $\bZ_{pq}$ is actually the product of $2\times 2$ diagonalisable matrices over $\bZ_{p}$ and $\bZ_{q}!$
+
+
+\begin{thebibliography}{}
+
+\bibitem{zpk} Enumerating Diagonalizable Matrices over $\mathbb{Z}_{p^k}$, Catherine Falvey and Heewon Hah and William Sheppard and Brian Sittinger and Rico Vicente, 2024. Retrieved from \url{https://arxiv.org/abs/2412.11358}.
+ 
+\end{thebibliography}
+
+
+
+\end{document}
